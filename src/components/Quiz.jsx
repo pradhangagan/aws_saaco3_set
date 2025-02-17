@@ -1,13 +1,19 @@
-// import { useState } from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Question from "./Question";
 import { QuizContext } from "../contexts/quiz";
 
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContext);
+  const navigate = useNavigate();
   console.log("quizState", quizState);
   const percentage =
     (quizState.correctAnswerCount / quizState.questions.length) * 100;
+
+  const handleRestart = () => {
+    dispatch({ type: "RESTART" });
+    navigate("/");
+  };
 
   return (
     <div className="quiz">
@@ -22,10 +28,7 @@ const Quiz = () => {
             </div>
             <div>Percentage: {percentage.toFixed(2)}</div>
           </div>
-          <div
-            className="next-button"
-            onClick={() => dispatch({ type: "RESTART" })}
-          >
+          <div className="next-button" onClick={handleRestart}>
             Restart
           </div>
         </div>
