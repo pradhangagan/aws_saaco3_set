@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -51,3 +53,9 @@ Additional Requirements:
 Ensure questions vary in difficulty (easy, medium, and hard).
 Include scenario-based and theoretical questions.
 Do not repeat questions and make sure they reflect the latest AWS best practices.
+
+# aws_saaco3_set
+
+A AWS Solution Architect Associate practice exam set
+
+> > > > > > > 2bfd78633273a2cfa4bb9ea3d66f68ad2b066a53
