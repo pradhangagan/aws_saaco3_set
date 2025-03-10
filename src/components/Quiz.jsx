@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import ExamHeader from "./ExamHeader";
 import Question from "./Question";
 import { QuizContext } from "../contexts/quiz";
 import "./Quiz.css";
@@ -20,6 +21,11 @@ const Quiz = () => {
 
   return (
     <div className="quiz-container">
+      <ExamHeader
+        currentQuestion={quizState.currentQuestionIndex + 1}
+        totalQuestions={quizState.questions.length}
+      />
+
       {quizState.showResults ? (
         <div className="results-container">
           <div className="results-header">

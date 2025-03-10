@@ -149,12 +149,12 @@ h2 {
 }
 
 .exam-tips ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  padding-left: 20px;
 }
 
 .exam-tips li {
-  color: #444;
   margin: 8px 0;
 }
 

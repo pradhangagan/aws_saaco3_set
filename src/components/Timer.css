@@ -1,0 +1,56 @@
+.timer-container {
+  background: var(--primary);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.time-display {
+  min-width: 85px;
+  text-align: center;
+}
+
+.timer.paused .time-display {
+  opacity: 0.7;
+}
+
+.pause-button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.pause-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Warning state when time is low */
+.timer.warning {
+  color: #ff9900;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

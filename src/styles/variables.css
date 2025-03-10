@@ -1,0 +1,25 @@
+:root {
+  /* AWS Exam Theme Colors */
+  --primary-bg: #f8f9fa;
+  --secondary-bg: #ffffff;
+  --header-bg: #232f3e; /* AWS Dark Blue */
+  --accent: #ff9900; /* AWS Orange */
+  --text-primary: #16191f;
+  --text-secondary: #545b64;
+  --border-color: #d5dbdb;
+  --success: #1d8102;
+  --error: #d13212;
+  --warning: #ff9900;
+  --disabled: #aab7b8;
+
+  /* Exam UI Specific */
+  --question-number-bg: #eaeded;
+  --selected-answer-bg: #f1f8ff;
+  --correct-answer: #dcf1d7;
+  --wrong-answer: #ffdede;
+  --flag-color: #e6b800;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
