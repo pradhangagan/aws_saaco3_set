@@ -9,6 +9,7 @@ const initialState = {
   answers: shuffleAnswers(questions[0]),
   currentAnswer: "",
   correctAnswerCount: 0,
+  previousAnswers: [],
 };
 
 const reducer = (state, action) => {
@@ -20,10 +21,15 @@ const reducer = (state, action) => {
         state.questions[state.currentQuestionIndex].correctAnswer
           ? state.correctAnswerCount + 1
           : state.correctAnswerCount;
+
+      const newPreviousAnswers = [...state.previousAnswers];
+      newPreviousAnswers[state.currentQuestionIndex] = action.payload;
+
       return {
         ...state,
         currentAnswer: action.payload,
         correctAnswerCount,
+        previousAnswers: newPreviousAnswers,
       };
     }
 
@@ -37,14 +43,35 @@ const reducer = (state, action) => {
       const answers = showResults
         ? []
         : shuffleAnswers(state.questions[currentQuestionIndex]);
+
+      const currentAnswer = state.previousAnswers[currentQuestionIndex] || "";
+
       return {
         ...state,
         currentQuestionIndex,
         showResults,
         answers,
-        currentAnswer: "",
+        currentAnswer,
       };
     }
+
+    case "PREVIOUS_QUESTION": {
+      if (state.currentQuestionIndex === 0) return state;
+
+      const currentQuestionIndex = state.currentQuestionIndex - 1;
+      const answers = shuffleAnswers(state.questions[currentQuestionIndex]);
+
+      const currentAnswer = state.previousAnswers[currentQuestionIndex] || "";
+
+      return {
+        ...state,
+        currentQuestionIndex,
+        showResults: false,
+        answers,
+        currentAnswer,
+      };
+    }
+
     case "RESTART": {
       return initialState;
     }

@@ -40,11 +40,23 @@ const Quiz = () => {
             {quizState.questions.length}
           </div>
           <Question />
-          <div
-            className="next-button"
-            onClick={() => dispatch({ type: "NEXT_QUESTION" })}
-          >
-            Next question
+          <div className="navigation-buttons">
+            {quizState.currentQuestionIndex > 0 && (
+              <div
+                className="nav-button prev-button"
+                onClick={() => dispatch({ type: "PREVIOUS_QUESTION" })}
+              >
+                Previous
+              </div>
+            )}
+            <div
+              className="nav-button next-button"
+              onClick={() => dispatch({ type: "NEXT_QUESTION" })}
+            >
+              {quizState.currentQuestionIndex === quizState.questions.length - 1
+                ? "Finish"
+                : "Next"}
+            </div>
           </div>
         </div>
       )}
